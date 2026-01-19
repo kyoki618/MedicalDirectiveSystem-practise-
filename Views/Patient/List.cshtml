@@ -1,0 +1,27 @@
+@model IEnumerable<MedicalDirectiveSystem.Models.Patient>
+    // The List.cshtml file for displaying the list of patients
+<h2>病患列表</h2>
+
+<p>
+    <a asp-action="Create">新增病患</a>
+</p>
+
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>病歷號</th>
+        <th>姓名</th>
+        <th>身分證字號</th>
+        <th>出生日期</th>
+    </tr>
+@foreach (var patient in Model)
+{
+    <tr>
+        <td>@patient.Id</td>
+        <td>@patient.MedicalRecordNo</td>
+        <td>@patient.Name</td>
+        <td>@patient.IdNumber</td>
+        <td>@patient.BirthDate.ToShortDateString()</td>
+    </tr>
+}
+</table>
